@@ -22,6 +22,6 @@ app.listen(5000, () => {
 // app.post (insert data)
 // app.put  (update data)
 // app.delete (delete data)
-// app.all (works with all of above)
+// app.all (works with all-of-above)
 // app.use
 // app.listen
