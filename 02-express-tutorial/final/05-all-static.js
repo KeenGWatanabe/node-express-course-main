@@ -9,7 +9,7 @@ app.use(express.static('./lobster'))
 // app.get('/', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
 //   adding to static assets
-//   SSR
+//   SSR (Server Side Rendering)
 // })
 
 app.all('*', (req, res) => {
