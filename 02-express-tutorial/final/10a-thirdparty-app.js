@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const logger = require('./logger')
-const authorize = require('./authorize')
+const authorize = require('./10a-thirdparty-authorize')
 //  req => middleware => res
 
 // 1. use vs route
