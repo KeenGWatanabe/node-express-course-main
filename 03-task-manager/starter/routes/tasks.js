@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
+// const tasks = require('./routes/tasks')
 
-router.route('/').get((req, res) => {
-    res.send('all items')
-})
+
+const {getAlLTasks, getAllTasks} = require('../controllers/tasks')
+
+router.route('/').get(getAllTasks)
 
 module.exports = router
 

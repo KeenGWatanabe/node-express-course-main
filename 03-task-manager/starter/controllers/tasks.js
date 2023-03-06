@@ -1,8 +1,10 @@
-const express = require('express')
-const router = express.Router()
+const getAllTasks = (req, res) => {
+    res.send('get all items from the file')
+}
 
-const {getAllTasks} = require('../controllers/tasks')
-
-router.route('/').get(getAllTasks)
-
-module.exports = router
+// const createTask = (req, res) => {
+//     res.send('create task')
+// }
+module.exports = {
+    getAllTasks,
+}

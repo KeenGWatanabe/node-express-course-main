@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
 const tasks = require('./routes/tasks')
+// const tasks = require('../controllers/tasks')
 
 //middleware
-
 app.use(express.json())
 
 //routes
-app.use('/hello', (req, res) => {
+app.get('/hello', (req, res) => {
     res.send('Task Manage App')
 })
 
