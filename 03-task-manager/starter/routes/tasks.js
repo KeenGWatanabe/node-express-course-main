@@ -13,6 +13,7 @@ const {
   } = require('../controllers/tasks')
 
 router.route('/').get(getAllTasks).post(createTask)
+// :id is a param
 router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask)
 
 module.exports = router
