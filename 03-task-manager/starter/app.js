@@ -18,7 +18,8 @@ app.use('/api/v1/tasks', tasks)
 // app.patch('/api/v1/tasks/:id')  - update task
 // app.delete('/api/v1/tasks/:id') - delete task
 
-const port = 3000
+// const port = 3000
+const port = process.env.PORT || 5000;
 
 const start = async ()=>{
     try{
