@@ -39,11 +39,11 @@ const getAllProducts = async (req, res) =>{
     result = result.select('createAt')
   }
   const page = Number(req.query.page) || 1  //if page no. OR 1
-  const limit = Number(req.query.limit) || 10 //if limit OR 10
-  const skip = (page-1) * limit;
+  const limit = Number(req.query.limit) || 10 //if limit OR 10 items per page
+  const skip = (page-1) * limit;  // eg page 3, (3-1)*10
 
   result = result.skip(skip).limit(limit)
-  // 23 pages if page stated eg , (2-1)*10=10
+  // 23 items 3 pages  if pages stated eg 2, (2-1)*10=10 shows page 2, 10items per page
 
   const products = await result
   res.status(200).json({ products, nbHits: products.length })
