@@ -19,7 +19,11 @@ throw new CustomeAPIError('Please provide email and password', 400)
 const id = new Date().getDate()
 // $ npm install jsonwebtoken; try to keep payload small, better experience for user
 // just for demo, in production use long, complex, unguessable string value!!!!!
+
+
+
 const token = jwt.sign({id, username},process.env.JWT_SECRET,{expiresIn:'30d'})
+
 res.status(200).json({msg:'user created', token})
 //console.log(username,password)
   res.send('Fake Login/Register/SignUp Route')
