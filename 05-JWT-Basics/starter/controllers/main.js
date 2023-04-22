@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const CustomeAPIError = require('../errors/custom-error')
 
 const login = async (req, res) => {
-const {username,password} = req.body
+const {username,password} = req.body``
 // mongoose validation
 // Joi pckg
 // check in the controller
