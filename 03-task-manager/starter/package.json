@@ -1,13 +1,13 @@
 {
   "name": "jobs",
   "version": "1.0.0",
-  "description": "",
+  "description": "tasks manager",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rger",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -16,5 +16,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/KeenGWatanabe/taskmgr"
   }
 }
