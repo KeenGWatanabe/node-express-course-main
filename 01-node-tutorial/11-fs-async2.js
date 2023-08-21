@@ -15,7 +15,7 @@ readFile('./content/first.txt', 'utf8', (err, result) => {
     const second = result
     writeFile(
       './content/result-async.txt',
-      `Async overwrites the file : ${first}, ${second}`,
+      `Lets change the script and see: ${first}`,
       (err, result) => {
         if (err) {
           console.log(err)
