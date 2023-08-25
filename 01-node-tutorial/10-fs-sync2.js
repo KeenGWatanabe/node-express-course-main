@@ -13,7 +13,7 @@ const min = dateObject.getMinutes()
 
 console.log('start')
 writeFileSync('./content/result-sync.txt',
-  `datacamp start at ${hrs}:${min}`,
+  `< datacamp start on ${year}-${month}-${date} at ${hrs}:${min} >`,
   { flag: 'a' }
 )
 console.log('done')
