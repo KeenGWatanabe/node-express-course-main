@@ -1,18 +1,19 @@
 // reading file function
+const { time, timeStamp } = require('console')
 const { readFileSync, writeFileSync } = require('fs')
+//writing timestamp in nodejs
+const timestamp = Date.now();
+const dateObject = new Date(timestamp);
+const date = dateObject.getDate();
+const month = dateObject.getMonth()+1; //Jan is 0, therefore month will always +1
+const year = dateObject.getFullYear();
+const hrs = dateObject.getHours()
+const min = dateObject.getMinutes()
+
+
 console.log('start')
-const first = readFileSync('./content/first.txt', 'utf8')
-const second = readFileSync('./content/second.txt', 'utf8')
-console.log('read file 1:',first, 'read file 2:',second)
-// writing into the file
 writeFileSync('./content/result-sync.txt',
-  `Here is the result : ${first}, ${second}`,
+  `datacamp start at ${hrs}:${min}`,
   { flag: 'a' }
 )
-console.log('done with this task')
-console.log('starting the next one')
-writeFileSync(
-  './content/result-sync.txt',
-  ` Lets change the script`,{flag:'a'}
-
-)
+console.log('done')
