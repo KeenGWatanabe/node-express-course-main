@@ -1,3 +1,4 @@
+// 1. DOM element selection with querySelector, assign var
 const formDOM = document.querySelector('.form')
 const usernameInputDOM = document.querySelector('.username-input')
 const passwordInputDOM = document.querySelector('.password-input')
@@ -6,15 +7,18 @@ const resultDOM = document.querySelector('.result')
 const btnDOM = document.querySelector('#data')
 const tokenDOM = document.querySelector('.token')
 
+// 2. form submission event listener
 formDOM.addEventListener('submit', async (e) => {
   formAlertDOM.classList.remove('text-success')
   tokenDOM.classList.remove('text-success')
 
+// prevents default form submission behaviour,
+// retrieves username, password value
   e.preventDefault()
   const username = usernameInputDOM.value
   const password = passwordInputDOM.value
 
-  try {
+  try { //async (overwrite behaviour) post request to api/v1/login
     const { data } = await axios.post('/api/v1/login', { username, password })
 
     formAlertDOM.style.display = 'block'

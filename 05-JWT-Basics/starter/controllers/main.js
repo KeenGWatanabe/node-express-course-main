@@ -31,7 +31,9 @@ const dashboard = async (req,res) =>{
 
   res.status(200).json({
     msg:`Hello, ${req.user.username}`,
-    secret:`Here is your authorized token data, your sequence is ${luckyNumber}`})
+    secret:`Here is your authorized token data, your sequence is ${luckyNumber}`
+    
+  })
     
 }
 
