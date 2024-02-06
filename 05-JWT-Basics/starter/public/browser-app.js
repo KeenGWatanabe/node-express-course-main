@@ -18,7 +18,7 @@ formDOM.addEventListener('submit', async (e) => {
   const username = usernameInputDOM.value
   const password = passwordInputDOM.value
 
-  try { //async (overwrite behaviour) post request to api/v1/login
+  try { //async (overwrite behaviour) POST request to api/v1/login
     const { data } = await axios.post('/api/v1/login', { username, password })
 
     formAlertDOM.style.display = 'block'
@@ -44,7 +44,7 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.style.display = 'none'
   }, 2000)
 })
-
+// 3. button click event listener GET req api/v1/dashboard
 btnDOM.addEventListener('click', async () => {
   const token = localStorage.getItem('token')
   try {
@@ -61,7 +61,7 @@ btnDOM.addEventListener('click', async () => {
     resultDOM.innerHTML = `<p>${error.response.data.msg}</p>`
   }
 })
-
+// 4. token checking function just to update UI
 const checkToken = () => {
   tokenDOM.classList.remove('text-success')
 
@@ -71,4 +71,4 @@ const checkToken = () => {
     tokenDOM.classList.add('text-success')
   }
 }
-checkToken()
+checkToken() // fn is check when page loads
