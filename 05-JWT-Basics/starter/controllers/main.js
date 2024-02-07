@@ -27,6 +27,7 @@ res.status(200).json({msg:'user created', token})
 }  
 
 const dashboard = async (req,res) =>{
+  console.log(req.headers);
   const luckyNumber = Math.floor(Math.random()*100);
 
   res.status(200).json({

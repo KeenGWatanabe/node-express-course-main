@@ -16,10 +16,10 @@ app.use(express.static('./public'));
 // parse(analyse) JSON payloads
 app.use(express.json());
 
-//to use login/dashboard, includes /api/v1
+// to use login/dashboard, includes /api/v1
 app.use('/api/v1',mainRouter); 
 
-// custome middleware error handling
+// custom middleware error handling
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
