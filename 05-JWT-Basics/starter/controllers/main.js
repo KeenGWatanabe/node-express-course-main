@@ -4,7 +4,7 @@
 // setup authentication so only the request with JWT can access the dashboard
 
 const jwt = require('jsonwebtoken')
-const { BadRequestError } = require('../errors')
+const { BadRequestError, CustomAPIError } = require('../errors')
 
 const login = async (req, res) => {
 const {username,password} = req.body
@@ -23,12 +23,26 @@ const id = new Date().getDate()
 // just for demo, in production use long, complex, unguessable string value!!!!!
 const token = jwt.sign({id, username},process.env.JWT_SECRET,{expiresIn:'30d'})
 res.status(200).json({msg:'user created', token})
-
 }  
 
 const dashboard = async (req,res) =>{
-  console.log(req.headers);
-  const luckyNumber = Math.floor(Math.random()*100);
+  const authHeader = req.headers.authorization;
+
+if(!authHeader || !authHeader.startsWith('Bearer')){
+  throw new CustomeAPIError('no token provided', 401)
+}
+  
+const token = authHeader.split('')[1]
+try{
+  const decoded = jwt.verify(token,process.env.JWT_SECRET)
+  console.log(decoded);
+} catch (error){
+  throw new CustomAPIError('Not authorized to access this route',401)
+
+}
+
+
+
 
   res.status(200).json({
     msg:`Hello, ${req.user.username}`,
