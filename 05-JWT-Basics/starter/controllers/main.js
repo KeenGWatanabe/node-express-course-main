@@ -1,4 +1,4 @@
- // chk username, password in pot(login) request
+// chk username, password in pot(login) request
 // if exist create new JWT
 // send back to frontend
 // setup authentication so only the request with JWT can access the dashboard
@@ -33,20 +33,20 @@ const dashboard = async (req,res) =>{
 }
 
 
+const token = authHeader.split(' ')[1] //split Bearer<space>token
+
+try{
+  const decoded = jwt.verify(token,process.env.JWT_SECRET)
+  console.log(decoded);
+} catch (error){
+  throw new CustomAPIError('Not authorized to access this route',401)
+}
 
   const luckyNumber = Math.floor(Math.random()*100)
   res.status(200).json({msg: `Hello,${req.user.username}`, secret:`Here is your authorized data, ${luckyNumber}`})
 
 }
   
-// const token = authHeader.split('')[1]
-// try{
-//   const decoded = jwt.verify(token,process.env.JWT_SECRET)
-//   console.log(decoded);
-// } catch (error){
-//   throw new CustomAPIError('Not authorized to access this route',401)
-
-// }
 
 
 
