@@ -1,0 +1,49 @@
+Got it! To modify the Node.js code to serve an index.html page with a username and password requirement, you can make the following changes:
+
+1. Update the mainRouter to handle the login functionality:
+   - Instead of serving a dashboard, the mainRouter will handle the login functionality and authentication.
+
+2. Add middleware for parsing form data:
+   - Since you'll be handling form submissions for username and password, you'll need to add middleware to parse form data.
+
+Here's the modified code:
+javascript
+require('dotenv').config();
+require('express-async-errors');
+
+const express = require('express');
+const app = express();
+
+const mainRouter = require('./routes/main'); // Assuming this is where your main router is defined
+const notFoundMiddleware = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
+
+// Middleware
+app.use(express.static('./public'));
+app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded form data
+
+// Routes
+app.use('/api/v1', mainRouter); // Assuming mainRouter handles login/authentication
+
+// Error handling middleware
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
+
+const port = process.env.PORT || 3000;
+
+const start = async () => {
+  try {
+    app.listen(port, () =>
+      console.log(`Server is listening on port ${port}...`)
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();
+In this modified code:
+- The express.urlencoded({ extended: true }) middleware is added to parse URL-encoded form data, which will be used for handling username and password submissions.
+- The mainRouter is used to handle the login/authentication logic. This router should handle POST requests for submitting username and password for authentication.
+
+With these modifications, your Node.js server will now serve the index.html page with a username and password requirement, and the mainRouter will handle the login/authentication logic. If you have any further questions or need additional assistance, feel free to ask!

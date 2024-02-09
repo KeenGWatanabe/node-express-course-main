@@ -1,0 +1,18 @@
+To enable the browser to access the index.html page after the user has logged in, you can use JavaScript to handle the click event of the "Access page" button and redirect the user to the index.html page. Here's an example of how you can achieve this:
+javascript
+document.addEventListener('DOMContentLoaded', function () {
+  const accessPageButton = document.getElementById('index');
+
+  accessPageButton.addEventListener('click', function () {
+    // Perform any necessary token verification here before redirecting
+    // If token is verified, redirect to index.html
+    window.location.href = 'index.html';
+  });
+});
+In this example:
+- We use document.addEventListener('DOMContentLoaded', ...) to ensure that the JavaScript code runs after the DOM has been fully loaded.
+- We retrieve the "Access page" button using document.getElementById('index').
+- We add a click event listener to the button. When the button is clicked, it will execute the provided function.
+- Inside the click event listener, you can perform any necessary token verification logic. If the token is verified, you can use window.location.href to redirect the user to the index.html page.
+
+By adding this JavaScript code to your existing HTML file, clicking the "Access page" button will trigger the redirection to the index.html page after any necessary token verification. If you have any further questions or need additional assistance, feel free to ask!

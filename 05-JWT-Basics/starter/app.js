@@ -12,7 +12,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 // 3. Middleware - serves static files (./public) 
 app.use(express.static('./public'));
-
+app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded form data
 // parse(analyse) JSON payloads
 app.use(express.json());
 
