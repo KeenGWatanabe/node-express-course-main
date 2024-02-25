@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router();
 
 const {
     getAllTasks,
@@ -10,6 +10,7 @@ const {
     editTask,
   } = require('../controllers/tasks')
 
+// chain style by route/.get().post().delete().... etc
 router.route('/').get(getAllTasks).post(createTask)
 router.route('/:id').get(getTask).patch(updateTask).delete(deleteTask)
 
